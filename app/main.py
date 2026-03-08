@@ -89,6 +89,17 @@ async def http_exception_handler(request: Request, exc: HTTPException):
         )
 
 
+@app.get("/talents")
+def talents(request: Request):
+    return template.TemplateResponse(
+        request=request,
+        name="talents.html",
+        context={
+            "year": year,
+        },
+    )
+
+
 if __name__ == "__main__":
     import uvicorn
 
