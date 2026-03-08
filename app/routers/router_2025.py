@@ -458,14 +458,3 @@ def staff_feedback(request: Request):
             "year": year,
         },
     )
-
-
-@router.get("/talents")
-def talents(request: Request):
-    return template.TemplateResponse(
-        request=request,
-        name="talents.html",
-        context={
-            "year": year,
-        },
-    )
