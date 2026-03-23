@@ -2,31 +2,28 @@ import typing
 if not hasattr(typing, "_ClassVar") and hasattr(typing, "ClassVar"):
     typing._ClassVar = typing.ClassVar
 
-
-import os
 from fastapi import FastAPI, HTTPException, Request
 from app.routers.router_2025 import router as router_2025
 from app.routers.router_2026 import router as router_2026
-from dotenv import load_dotenv
 from fastapi import FastAPI, Request, HTTPException, status
 from fastapi.templating import Jinja2Templates
 from fastapi.responses import HTMLResponse, RedirectResponse, Response
 from fastapi.staticfiles import StaticFiles
 from datetime import datetime,  timezone
 from pathlib import Path
+from app.core.settings import settings
 
-load_dotenv()
 
-
-ENV = os.getenv("ENV", "dev")
+ENV = settings.env
 
 app = FastAPI(
-    title="PyCon Tog0 Official Website",
-    description="The official website for PyCon Tog0, the premier Python conference in Togo. Join us for an unforgettable experience filled with inspiring talks, hands-on workshops, and vibrant community engagement. Whether you're a seasoned developer or just starting your Python journey, PyCon Tog0 offers something for everyone. Stay tuned for updates on speakers, schedules, and registration details as we prepare to bring the Python community together in Togo!",
-    version="1.1.0",
-    openapi_url="/openapi.json" if ENV == "dev" or ENV == "local" else None,
-    docs_url="/docs" if ENV == "dev" or ENV == "local" else None,
-    redoc_url="/redoc" if ENV == "dev" or ENV == "local" else None,
+    title=settings.name,
+    description="The official website for PyCon Togo, the premier Python conference in Togo. Join us for an unforgettable experience filled with inspiring talks, hands-on workshops, and vibrant community engagement. Whether you're a seasoned developer or just starting your Python journey, PyCon Togo offers something for everyone. Stay tuned for updates on speakers, schedules, and registration details as we prepare to bring the Python community together in Togo!",
+    version=settings.version,
+    openapi_url="/openapi.json" if ENV in ["dev",
+                                           "local", "development"] else None,
+    docs_url="/docs" if ENV in ["dev", "local", "development"] else None,
+    redoc_url="/redoc" if ENV in ["dev", "local", "development"] else None,
 )
 
 BASE_DIR = Path(__file__).resolve().parent

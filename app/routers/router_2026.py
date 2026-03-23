@@ -11,7 +11,7 @@ template = Jinja2Templates(
 )
 
 
-router = APIRouter()
+router = APIRouter(tags=["2026"])
 
 today = datetime.now(timezone.utc)
 
@@ -155,6 +155,39 @@ def volunteers(request: Request):
     return template.TemplateResponse(
         request=request,
         name="2026_volunteers.html",
+        context={
+            "year": year,
+        },
+    )
+
+
+@router.get("/registration")
+def registration(request: Request):
+    return template.TemplateResponse(
+        request=request,
+        name="2026_registration.html",
+        context={
+            "year": year,
+        },
+    )
+
+
+@router.get("/feedback")
+def feedback(request: Request):
+    return template.TemplateResponse(
+        request=request,
+        name="2026_feedback.html",
+        context={
+            "year": year,
+        },
+    )
+
+
+@router.get("/shop")
+def shop(request: Request):
+    return template.TemplateResponse(
+        request=request,
+        name="2026_shop.html",
         context={
             "year": year,
         },
