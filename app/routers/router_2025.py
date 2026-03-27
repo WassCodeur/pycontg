@@ -23,7 +23,7 @@ from fastapi.templating import Jinja2Templates
 from fastapi.responses import RedirectResponse
 
 
-router = APIRouter()
+router = APIRouter(tags=["2025"])
 
 
 template = Jinja2Templates(

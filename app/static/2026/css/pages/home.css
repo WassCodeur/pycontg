@@ -1,0 +1,4 @@
+/* Page-specific home tweaks */
+.hero {
+    scroll-margin-top: var(--nav-h);
+}
