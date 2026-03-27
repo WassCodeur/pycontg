@@ -1,0 +1,98 @@
+/* Sponsors page specific polish */
+.why-sponsor {
+    scroll-margin-top: calc(var(--nav-h) + 20px);
+}
+
+.prospectus-download {
+    margin: 8px 0 20px;
+    padding: 18px;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    background: #ffffff;
+}
+
+.prospectus-download p {
+    margin: 0 0 12px;
+    font-size: 15px;
+    color: var(--text-mid);
+}
+
+.prospectus-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.prospectus-actions .btn {
+    min-height: 42px;
+}
+
+.sponsor-pack-table-wrap {
+    overflow-x: auto;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    background: #ffffff;
+}
+
+.sponsor-pack-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 900px;
+}
+
+.sponsor-pack-table th,
+.sponsor-pack-table td {
+    padding: 14px 12px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: middle;
+}
+
+.sponsor-pack-table thead th {
+    background: #f7fbf8;
+    font-size: 18px;
+    text-align: center;
+    color: #162b20;
+    white-space: nowrap;
+}
+
+.sponsor-pack-table thead th:first-child {
+    text-align: left;
+}
+
+.sponsor-pack-table thead th span {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-mid);
+}
+
+.sponsor-pack-table tbody td:first-child {
+    width: 48%;
+    font-weight: 600;
+    color: #0f2018;
+}
+
+.sponsor-pack-table tbody td:not(:first-child) {
+    text-align: center;
+    font-size: 24px;
+    font-weight: 700;
+    color: #173c2c;
+}
+
+.sponsor-pack-table tbody tr:nth-child(odd) {
+    background: rgba(87, 182, 127, 0.12);
+}
+
+.sponsor-pack-table tbody tr:last-child td {
+    border-bottom: 0;
+}
+
+@media (max-width: 860px) {
+    .prospectus-actions {
+        flex-direction: column;
+    }
+
+    .prospectus-actions .btn {
+        width: 100%;
+        justify-content: center;
+    }
+}
